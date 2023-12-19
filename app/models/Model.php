@@ -6,7 +6,7 @@ use PDO;
 class Model
 {
     protected $id;
-    protected static $db;
+    protected static $conn;
 
     public function getId()
     {
@@ -16,11 +16,12 @@ class Model
     /**
      * @return PDO
      */
-    public static function database()
+    public static function databaseConn()
     {
-        if (is_null(static::$db)) {
-            static::$db = new PDO('mysql:dbname=dao;host=localhost', "root", "");
+        if (is_null(static::$conn)) {
+            static::$conn = new PDO('mysql:connname=todo;host=localhost', "root", "");
         }
-        return static::$db;
+        return static::$conn;
     }
+
 }
