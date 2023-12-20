@@ -11,6 +11,10 @@ if (isset($_GET['action'])) {
             ToDoController::createAction();
             break;
     
+        case 'store':
+            ToDoController::storeAction();
+            break;
+    
         default:
             echo "ERROR";
             break;
