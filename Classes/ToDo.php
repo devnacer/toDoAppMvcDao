@@ -1,5 +1,5 @@
 <?php
-namespace app\models;
+namespace Classes;
 
 use PDO;
 
@@ -36,10 +36,11 @@ class ToDo extends Model
 
     
     public static function create()
-    {   
+    {   self::$title = $_POST['title'];
+        self::$desc =  $_POST['desc'];
         $sqls = static::databaseConn()->prepare('INSERT INTO todo VALUES (null, ?, ?)');
 
-        return $sqls->execute([$title, $desc]);
+        return $sqls->execute([self::$title, self::$desc]);
     }
 
 }
